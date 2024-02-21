@@ -2,18 +2,21 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    "group:allNonMajor"
+    "group:allNonMajor",
+    ":timezone(Asia/Tokyo)",
+    ":prHourlyLimitNone"
   ],
-  "prHourlyLimit": 3,
+  "schedule": ["at 0 * * *", "between 0 9 * * *"],
+  "prConcurrentLimit": 5,
   "assignees": [
     "dev-satoshi"
   ],
-  "labels": ["dependency update"],
+  "labels": ["renovate"],
   "packageRules": [
     {
       "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true,
-      "addLabels": ["major update"]
+      "addLabels": ["major update"],
+      "dependencyDashboardApproval": true
     }
   ]
 }
