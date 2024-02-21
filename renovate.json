@@ -1,7 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:base",
+    "group:allNonMajor"
   ],
-  "prHourlyLimit": 3
+  "prHourlyLimit": 3,
+  "assignees": [
+    "dev-satoshi"
+  ],
+  "labels": ["dependency update"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "addLabels": ["major update"]
+    }
+  ]
 }
